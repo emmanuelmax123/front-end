@@ -1,0 +1,21 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  .btn {
+    @apply rounded-full border-black py-1 px-2 border-2 hover:cursor-pointer flex justify-around items-center mt-6;
+  }
+  .search {
+    @apply rounded-2xl border-black;
+  }
+}
+
+@layer base {
+  h1 {
+    @apply text-[56px] font-bold font-[Raleway];
+  }
+  img {
+    @apply rounded-xl;
+  }
+}
