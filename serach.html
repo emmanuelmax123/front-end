@@ -10,5 +10,149 @@
     />
     <title>Search Jobs</title>
   </head>
-  <body></body>
+  <body class="px-[84px]">
+    <!-- nav starts -->
+    <nav class="flex justify-between pt-5 mb-[44px]">
+      <img src="assets/logo.svg" />
+      <ul class="flex justify-center items-center space-x-10">
+        <li class="relative group">
+          <a href="#" class="pb-2">Home</a>
+          <div
+            class="absolute left-0 right-0 mx-auto mt-2 h-1 bg-[#659fa3] rounded-full opacity-0 transition-opacity duration-300 group-hover:opacity-100"
+          ></div>
+        </li>
+        <li class="relative group">
+          <a href="#" class="pb-2">How it works</a>
+          <div
+            class="absolute left-0 right-0 mx-auto mt-2 h-1 bg-[#659fa3] rounded-full opacity-0 transition-opacity duration-300 group-hover:opacity-100"
+          ></div>
+        </li>
+        <li class="relative group">
+          <a href="#" class="pb-2">About Us</a>
+          <div
+            class="absolute left-0 right-0 mx-auto mt-2 h-1 bg-[#659fa3] rounded-full opacity-0 transition-opacity duration-300 group-hover:opacity-100"
+          ></div>
+        </li>
+        <li class="relative group">
+          <a href="#" class="pb-2">Contact Us</a>
+          <div
+            class="absolute left-0 right-0 mx-auto mt-2 h-1 bg-[#659fa3] rounded-full opacity-0 transition-opacity duration-300 group-hover:opacity-100"
+          ></div>
+        </li>
+      </ul>
+    </nav>
+    <!-- serach starts -->
+    <div class="flex justify-center items-center gap-2 mb-6">
+      <form action="">
+        <input
+          type="text"
+          placeholder="Developer"
+          class="rounded-l-2xl w-[424px] py-2 px-7 border bg-transparent border-gray-300 focus:outline-none focus:ring-2 focus:ring-black focus:border-transparent"
+        />
+      </form>
+
+      <!-- i need to align the hover to the text  -->
+      <form action="" class="relative flex justify-center items-center">
+        <input
+          type="text"
+          placeholder="Location"
+          class="bg-blue rounded-r-2xl w-[170px] py-2 px-10 border bg-transparent border-gray-300 focus:outline-none focus:ring-2 focus:ring-black-600 focus:border-transparent"
+        />
+        <img src="assets/location_on.svg" alt="" class="absolute left-2" />
+      </form>
+    </div>
+    <!-- search/save starts -->
+    <div
+      class="flex justify-center items-center gap-[119px] border-b-2 border-gray-100 p-1 mb-[47px]"
+    >
+      <div class="relative group">
+        <p class="hover:">Search</p>
+        <div
+          class="rounded-full w-[41px] h-[4px] absolute bg-black opacity-0 group-hover:opacity-100"
+        ></div>
+      </div>
+
+      <div class="relative group items-center">
+        <p class="hover:">Save</p>
+        <div
+          class="rounded-full w-[24px] h-[4px] absolute bg-black opacity-0 group-hover:opacity-100"
+        ></div>
+      </div>
+    </div>
+    <!-- job options -->
+    <div class="flex justify-center items-center">
+      <button
+        class="inline-flex w-[144px] justify-center gap-x-1.5 rounded-full bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50 mr-[50px]"
+      >
+        Language
+        <svg
+          class="-mr-1 h-5 w-5 text-gray-400"
+          viewBox="0 0 20 20"
+          fill="currentColor"
+          aria-hidden="true"
+          data-slot="icon"
+        >
+          <path
+            fill-rule="evenodd"
+            d="M5.22 8.22a.75.75 0 0 1 1.06 0L10 11.94l3.72-3.72a.75.75 0 1 1 1.06 1.06l-4.25 4.25a.75.75 0 0 1-1.06 0L5.22 9.28a.75.75 0 0 1 0-1.06Z"
+            clip-rule="evenodd"
+          />
+        </svg>
+      </button>
+      <button
+        class="inline-flex w-[144px] justify-center gap-x-1.5 rounded-full bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50 mr-[50px]"
+      >
+        Salary Range
+        <svg
+          class="-mr-1 h-5 w-5 text-gray-400"
+          viewBox="0 0 20 20"
+          fill="currentColor"
+          aria-hidden="true"
+          data-slot="icon"
+        >
+          <path
+            fill-rule="evenodd"
+            d="M5.22 8.22a.75.75 0 0 1 1.06 0L10 11.94l3.72-3.72a.75.75 0 1 1 1.06 1.06l-4.25 4.25a.75.75 0 0 1-1.06 0L5.22 9.28a.75.75 0 0 1 0-1.06Z"
+            clip-rule="evenodd"
+          />
+        </svg>
+      </button>
+      <button
+        class="inline-flex w-[144px] justify-center gap-x-1.5 rounded-full bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50 mr-[50px]"
+      >
+        Experience
+        <svg
+          class="-mr-1 h-5 w-5 text-gray-400"
+          viewBox="0 0 20 20"
+          fill="currentColor"
+          aria-hidden="true"
+          data-slot="icon"
+        >
+          <path
+            fill-rule="evenodd"
+            d="M5.22 8.22a.75.75 0 0 1 1.06 0L10 11.94l3.72-3.72a.75.75 0 1 1 1.06 1.06l-4.25 4.25a.75.75 0 0 1-1.06 0L5.22 9.28a.75.75 0 0 1 0-1.06Z"
+            clip-rule="evenodd"
+          />
+        </svg>
+      </button>
+      <button
+        class="inline-flex w-[144px] mr-[50px] justify-center gap-x-1.5 rounded-full bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50"
+      >
+        Date Posted
+        <svg
+          class="-mr-1 h-5 w-5 text-gray-400"
+          viewBox="0 0 20 20"
+          fill="currentColor"
+          aria-hidden="true"
+          data-slot="icon"
+        >
+          <path
+            fill-rule="evenodd"
+            d="M5.22 8.22a.75.75 0 0 1 1.06 0L10 11.94l3.72-3.72a.75.75 0 1 1 1.06 1.06l-4.25 4.25a.75.75 0 0 1-1.06 0L5.22 9.28a.75.75 0 0 1 0-1.06Z"
+            clip-rule="evenodd"
+          />
+        </svg>
+      </button>
+    </div>
+  </body>
 </html>
