@@ -625,12 +625,24 @@ img {
   left: 0px;
 }
 
+.left-2 {
+  left: 0.5rem;
+}
+
 .right-0 {
   right: 0px;
 }
 
-.left-2 {
-  left: 0.5rem;
+.m-1 {
+  margin: 0.25rem;
+}
+
+.m-\[2px\] {
+  margin: 2px;
+}
+
+.m-2 {
+  margin: 0.5rem;
 }
 
 .mx-auto {
@@ -652,6 +664,10 @@ img {
 
 .mb-\[44px\] {
   margin-bottom: 44px;
+}
+
+.mb-\[47px\] {
+  margin-bottom: 47px;
 }
 
 .mb-\[50px\] {
@@ -714,8 +730,28 @@ img {
   margin-top: 60px;
 }
 
-.mb-\[47px\] {
-  margin-bottom: 47px;
+.ml-\[2px\] {
+  margin-left: 2px;
+}
+
+.ml-\[3px\] {
+  margin-left: 3px;
+}
+
+.mt-\[2px\] {
+  margin-top: 2px;
+}
+
+.ml-\[4px\] {
+  margin-left: 4px;
+}
+
+.mt-\[74px\] {
+  margin-top: 74px;
+}
+
+.mt-\[10px\] {
+  margin-top: 10px;
 }
 
 .flex {
@@ -742,6 +778,10 @@ img {
   height: 245px;
 }
 
+.h-\[4px\] {
+  height: 4px;
+}
+
 .h-\[540px\] {
   height: 540px;
 }
@@ -750,8 +790,28 @@ img {
   height: 100%;
 }
 
-.h-\[4px\] {
-  height: 4px;
+.h-\[142px\] {
+  height: 142px;
+}
+
+.h-\[20px\] {
+  height: 20px;
+}
+
+.h-\[25px\] {
+  height: 25px;
+}
+
+.h-\[42px\] {
+  height: 42px;
+}
+
+.h-\[50\] {
+  height: 50;
+}
+
+.h-\[50px\] {
+  height: 50px;
 }
 
 .w-1\/2 {
@@ -778,6 +838,14 @@ img {
   width: 170px;
 }
 
+.w-\[24px\] {
+  width: 24px;
+}
+
+.w-\[41px\] {
+  width: 41px;
+}
+
 .w-\[424px\] {
   width: 424px;
 }
@@ -798,12 +866,32 @@ img {
   width: 100%;
 }
 
-.w-\[41px\] {
-  width: 41px;
+.w-\[319px\] {
+  width: 319px;
 }
 
-.w-\[24px\] {
-  width: 24px;
+.w-\[15px\] {
+  width: 15px;
+}
+
+.w-\[20px\] {
+  width: 20px;
+}
+
+.w-\[85px\] {
+  width: 85px;
+}
+
+.w-\[285px\] {
+  width: 285px;
+}
+
+.w-\[206\] {
+  width: 206;
+}
+
+.w-\[206px\] {
+  width: 206px;
 }
 
 .grid-cols-2 {
@@ -824,6 +912,10 @@ img {
 
 .items-center {
   align-items: center;
+}
+
+.items-baseline {
+  align-items: baseline;
 }
 
 .justify-start {
@@ -879,18 +971,12 @@ img {
   border-width: 1px;
 }
 
+.border-2 {
+  border-width: 2px;
+}
+
 .border-b-2 {
   border-bottom-width: 2px;
-}
-
-.border-gray-300 {
-  --tw-border-opacity: 1;
-  border-color: rgb(209 213 219 / var(--tw-border-opacity));
-}
-
-.border-gray-500 {
-  --tw-border-opacity: 1;
-  border-color: rgb(107 114 128 / var(--tw-border-opacity));
 }
 
 .border-gray-100 {
@@ -898,18 +984,19 @@ img {
   border-color: rgb(243 244 246 / var(--tw-border-opacity));
 }
 
+.border-gray-300 {
+  --tw-border-opacity: 1;
+  border-color: rgb(209 213 219 / var(--tw-border-opacity));
+}
+
+.border-black {
+  --tw-border-opacity: 1;
+  border-color: rgb(0 0 0 / var(--tw-border-opacity));
+}
+
 .bg-\[\#659fa3\] {
   --tw-bg-opacity: 1;
   background-color: rgb(101 159 163 / var(--tw-bg-opacity));
-}
-
-.bg-white {
-  --tw-bg-opacity: 1;
-  background-color: rgb(255 255 255 / var(--tw-bg-opacity));
-}
-
-.bg-transparent {
-  background-color: transparent;
 }
 
 .bg-black {
@@ -917,8 +1004,13 @@ img {
   background-color: rgb(0 0 0 / var(--tw-bg-opacity));
 }
 
-.fill-black {
-  fill: #000;
+.bg-transparent {
+  background-color: transparent;
+}
+
+.bg-white {
+  --tw-bg-opacity: 1;
+  background-color: rgb(255 255 255 / var(--tw-bg-opacity));
 }
 
 .object-cover {
@@ -926,16 +1018,13 @@ img {
      object-fit: cover;
 }
 
-.p-5 {
-  padding: 1.25rem;
-}
-
-.p-2 {
-  padding: 0.5rem;
-}
-
 .p-1 {
   padding: 0.25rem;
+}
+
+.px-10 {
+  padding-left: 2.5rem;
+  padding-right: 2.5rem;
 }
 
 .px-2 {
@@ -948,6 +1037,11 @@ img {
   padding-right: 0.75rem;
 }
 
+.px-7 {
+  padding-left: 1.75rem;
+  padding-right: 1.75rem;
+}
+
 .px-\[84px\] {
   padding-left: 84px;
   padding-right: 84px;
@@ -958,24 +1052,14 @@ img {
   padding-bottom: 0.5rem;
 }
 
-.px-5 {
-  padding-left: 1.25rem;
-  padding-right: 1.25rem;
+.px-\[13px\] {
+  padding-left: 13px;
+  padding-right: 13px;
 }
 
-.px-7 {
-  padding-left: 1.75rem;
-  padding-right: 1.75rem;
-}
-
-.py-7 {
-  padding-top: 1.75rem;
-  padding-bottom: 1.75rem;
-}
-
-.px-10 {
-  padding-left: 2.5rem;
-  padding-right: 2.5rem;
+.py-\[13px\] {
+  padding-top: 13px;
+  padding-bottom: 13px;
 }
 
 .pb-2 {
@@ -988,6 +1072,18 @@ img {
 
 .pt-5 {
   padding-top: 1.25rem;
+}
+
+.pl-\[13px\] {
+  padding-left: 13px;
+}
+
+.pt-\[13px\] {
+  padding-top: 13px;
+}
+
+.pb-\[15px\] {
+  padding-bottom: 15px;
 }
 
 .text-\[24px\] {
