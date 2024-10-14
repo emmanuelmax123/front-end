@@ -12,29 +12,29 @@
   </head>
   <body class="px-[84px]">
     <!-- nav starts -->
-    <nav class="flex justify-between pt-5 mb-[44px]">
+    <nav class="sticky top-0 bg-white z-50 flex justify-between pt-5 mb-[44px]">
       <img src="assets/logo.svg" />
       <ul class="flex justify-center items-center space-x-10">
         <li class="relative group">
-          <a href="#" class="pb-2">Home</a>
+          <a href="#header" class="pb-2">Home</a>
           <div
             class="absolute left-0 right-0 mx-auto mt-2 h-1 bg-[#659fa3] rounded-full opacity-0 transition-opacity duration-300 group-hover:opacity-100"
           ></div>
         </li>
         <li class="relative group">
-          <a href="#" class="pb-2">How it works</a>
+          <a href="#howitwork" class="pb-2">How it works</a>
           <div
             class="absolute left-0 right-0 mx-auto mt-2 h-1 bg-[#659fa3] rounded-full opacity-0 transition-opacity duration-300 group-hover:opacity-100"
           ></div>
         </li>
         <li class="relative group">
-          <a href="#" class="pb-2">About Us</a>
+          <a href="#about" class="pb-2">About Us</a>
           <div
             class="absolute left-0 right-0 mx-auto mt-2 h-1 bg-[#659fa3] rounded-full opacity-0 transition-opacity duration-300 group-hover:opacity-100"
           ></div>
         </li>
         <li class="relative group">
-          <a href="#" class="pb-2">Contact Us</a>
+          <a href="#contact" class="pb-2">Contact</a>
           <div
             class="absolute left-0 right-0 mx-auto mt-2 h-1 bg-[#659fa3] rounded-full opacity-0 transition-opacity duration-300 group-hover:opacity-100"
           ></div>
@@ -43,7 +43,10 @@
     </nav>
 
     <!-- Header starts -->
-    <header class="flex justify-between items-center">
+    <header
+      class="flex justify-between items-center scroll-mt-[110px]"
+      id="header"
+    >
       <div class="flex flex-col items-start w-3/5">
         <!-- starts step up text for button -->
         <h1>
@@ -55,8 +58,8 @@
           from or going.
         </p>
         <div class="relative group rounded-full">
-          <button class="btn">
-            <p class="ml-2">Start Search</p>
+          <a href="serach.html" class="btn">
+            <span>Start Search</span>
             <img
               src="assets/Search arrow.svg"
               class="ml-2 opacity-100 group-hover:opacity-0"
@@ -66,7 +69,7 @@
               alt="hover arrow"
               class="ml-24 absolute opacity-0 group-hover:opacity-100"
             />
-          </button>
+          </a>
         </div>
       </div>
       <div class="w-2/5 h-[540px]">
@@ -75,7 +78,10 @@
     </header>
 
     <!-- How it works starts -->
-    <section class="flex justify-between mt-32">
+    <section
+      class="flex justify-between mt-32 scroll-mt-[160px]"
+      id="howitwork"
+    >
       <div class="flex flex-col items-start w-1/2">
         <h1>
           Simplifying Your <br />
@@ -86,8 +92,8 @@
           steps.
         </p>
         <div class="relative group rounded-full">
-          <button class="btn">
-            <p class="ml-2">Start Search</p>
+          <a href="serach.html" class="btn">
+            <span>Start Search</span>
             <img
               src="assets/Search arrow.svg"
               class="ml-2 opacity-100 group-hover:opacity-0"
@@ -97,7 +103,7 @@
               alt="hover arrow"
               class="ml-24 absolute opacity-0 group-hover:opacity-100"
             />
-          </button>
+          </a>
         </div>
       </div>
 
@@ -131,7 +137,7 @@
     </section>
 
     <!-- About Search Agent starts-->
-    <section class="mt-[100px]">
+    <section class="mt-[100px] scroll-mt-[110px]" id="about">
       <h2 class="mb-[54px]">About Serach Agent</h2>
       <div class="flex justify-between items-center">
         <div class="w-[557px]">
@@ -198,7 +204,10 @@
     </section>
 
     <!-- contact starts -->
-    <section class="mt-32 flex justify-between items-center">
+    <section
+      class="mt-32 flex justify-between items-center scroll-mt-[110px]"
+      id="contact"
+    >
       <div class="flex flex-col items-start w-1/2">
         <h2>Ready to Explore?</h2>
         <p class="w-[557px] mb-5">
@@ -208,8 +217,8 @@
           preferences.
         </p>
         <div class="relative group rounded-full">
-          <button class="btn">
-            <p class="ml-2">Start Search</p>
+          <a href="serach.html" class="btn">
+            <span>Start Search</span>
             <img
               src="assets/Search arrow.svg"
               class="ml-2 opacity-100 group-hover:opacity-0"
@@ -217,9 +226,9 @@
             <img
               src="assets/light-arrow.svg"
               alt="hover arrow"
-              class="ml-24 absolute opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+              class="ml-24 absolute opacity-0 group-hover:opacity-100"
             />
-          </button>
+          </a>
         </div>
       </div>
 

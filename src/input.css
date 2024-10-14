@@ -31,4 +31,7 @@
   img {
     @apply rounded-xl;
   }
+  html {
+    scroll-behavior: smooth;
+  }
 }
