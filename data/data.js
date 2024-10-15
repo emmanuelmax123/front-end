@@ -163,22 +163,3 @@ function generateJobDetailCard(job) {
 }
 
 // the content jumps to the left when we reach the bottom of the content
-let sidebar = document.querySelector(".js-sidebar");
-let jobCardConatiner = document.querySelector(".js-job-card-container");
-
-window.onscroll = () => {
-  let currentScrollPos = window.scrollY;
-  let viewportHeight = window.innerHeight;
-  let contentHeight = jobCardConatiner.getBoundingClientRect().height;
-
-  // checks if user has scrolled to the end
-  if (currentScrollPos >= contentHeight - viewportHeight) {
-    jobCardConatiner.style.transform = `translateY(-${
-      contentHeight - viewportHeight
-    }px)`;
-    jobCardConatiner.style.position = "fixed";
-  } else {
-    jobCardConatiner.style.transform = ``;
-    jobCardConatiner.style.position = "";
-  }
-};
