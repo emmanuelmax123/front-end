@@ -48,7 +48,7 @@
         <input
           type="text"
           placeholder="Developer"
-          class="rounded-l-2xl w-[424px] py-2 px-7 border bg-transparent border-gray-300 focus:outline-none focus:ring-2 focus:ring-black focus:border-transparent"
+          class="js-search-ph rounded-l-2xl w-[424px] py-2 px-7 border bg-transparent border-gray-300 focus:outline-none focus:ring-2 focus:ring-black focus:border-transparent"
         />
       </form>
 
@@ -57,7 +57,7 @@
         <input
           type="text"
           placeholder="Location"
-          class="bg-blue rounded-r-2xl w-[170px] py-2 px-10 border bg-transparent border-gray-300 focus:outline-none focus:ring-2 focus:ring-black-600 focus:border-transparent"
+          class="js-location-ph bg-blue rounded-r-2xl w-[170px] py-2 px-10 border bg-transparent border-gray-300 focus:outline-none focus:ring-2 focus:ring-black focus:border-transparent"
         />
         <img src="assets/location_on.svg" alt="" class="absolute left-2" />
       </form>
@@ -81,43 +81,74 @@
       </div>
     </div>
     <!-- job options -->
-    <div class="flex justify-center items-center">
-      <button
-        class="inline-flex w-[144px] justify-center gap-x-1.5 rounded-full bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50 mr-[50px]"
+    <div class="flex justify-center items-center select-none">
+      <div
+        id="dropdown1"
+        class="flex justify-between items-center h-24 w-[460px] relative"
       >
-        Language
-        <svg
-          class="-mr-1 h-5 w-5 text-gray-400"
-          viewBox="0 0 20 20"
-          fill="currentColor"
-          aria-hidden="true"
-          data-slot="icon"
+        <button
+          onclick="toggleDropdown('dropdown1')"
+          class="inline-flex w-[144px] justify-center rounded-full bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50"
         >
-          <path
-            fill-rule="evenodd"
-            d="M5.22 8.22a.75.75 0 0 1 1.06 0L10 11.94l3.72-3.72a.75.75 0 1 1 1.06 1.06l-4.25 4.25a.75.75 0 0 1-1.06 0L5.22 9.28a.75.75 0 0 1 0-1.06Z"
-            clip-rule="evenodd"
-          />
-        </svg>
-      </button>
-      <button
-        class="inline-flex w-[144px] justify-center gap-x-1.5 rounded-full bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50 mr-[50px]"
-      >
-        Salary Range
-        <svg
-          class="-mr-1 h-5 w-5 text-gray-400"
-          viewBox="0 0 20 20"
-          fill="currentColor"
-          aria-hidden="true"
-          data-slot="icon"
+          Salary Range
+          <svg
+            class="-mr-1 h-5 w-5 text-gray-400"
+            viewBox="0 0 20 20"
+            fill="currentColor"
+            aria-hidden="true"
+            data-slot="icon"
+          >
+            <path
+              fill-rule="evenodd"
+              d="M5.22 8.22a.75.75 0 0 1 1.06 0L10 11.94l3.72-3.72a.75.75 0 1 1 1.06 1.06l-4.25 4.25a.75.75 0 0 1-1.06 0L5.22 9.28a.75.75 0 0 1 0-1.06Z"
+              clip-rule="evenodd"
+            />
+          </svg>
+        </button>
+
+        <div
+          id="dropdown"
+          class="rounded border-gray-500 bg-white border-2 inline-flex divide-x-2 absolute ml-28"
         >
-          <path
-            fill-rule="evenodd"
-            d="M5.22 8.22a.75.75 0 0 1 1.06 0L10 11.94l3.72-3.72a.75.75 0 1 1 1.06 1.06l-4.25 4.25a.75.75 0 0 1-1.06 0L5.22 9.28a.75.75 0 0 1 0-1.06Z"
-            clip-rule="evenodd"
-          />
-        </svg>
-      </button>
+          <div class="cursor-pointer hover:bg-gray-300 p-2">1800+/-</div>
+          <div class="cursor-pointer hover:bg-gray-300 p-2">2300+/-</div>
+          <div class="cursor-pointer hover:bg-gray-300 p-2">3500+/-</div>
+          <div class="cursor-pointer hover:bg-gray-300 p-2">5000+</div>
+        </div>
+      </div>
+
+      <!-- <div id="dropdown2" class="relative">
+        <button
+          onclick="toggleDropdown('dropdown2')"
+          class="inline-flex w-[144px] justify-center gap-x-1.5 rounded-full bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50 mr-[50px]"
+        >
+          Experience
+          <svg
+            class="-mr-1 h-5 w-5 text-gray-400"
+            viewBox="0 0 20 20"
+            fill="currentColor"
+            aria-hidden="true"
+            data-slot="icon"
+          >
+            <path
+              fill-rule="evenodd"
+              d="M5.22 8.22a.75.75 0 0 1 1.06 0L10 11.94l3.72-3.72a.75.75 0 1 1 1.06 1.06l-4.25 4.25a.75.75 0 0 1-1.06 0L5.22 9.28a.75.75 0 0 1 0-1.06Z"
+              clip-rule="evenodd"
+            />
+          </svg>
+        </button>
+
+        <div
+          id="dropdown"
+          class="rounded border-gray-500 bg-white absolute border-2 w-[100px] hidden"
+        >
+          <div class="cursor-pointer hover:bg-gray-300 p-2">Entry</div>
+          <div class="cursor-pointer hover:bg-gray-300 p-2">Mid</div>
+          <div class="cursor-pointer hover:bg-gray-300 p-2">senior</div>
+          <div class="cursor-pointer hover:bg-gray-300 p-2">Expert</div>
+        </div>
+      </div>
+
       <button
         class="inline-flex w-[144px] justify-center gap-x-1.5 rounded-full bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50 mr-[50px]"
       >
@@ -135,25 +166,7 @@
             clip-rule="evenodd"
           />
         </svg>
-      </button>
-      <button
-        class="inline-flex w-[144px] mr-[50px] justify-center gap-x-1.5 rounded-full bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50"
-      >
-        Date Posted
-        <svg
-          class="-mr-1 h-5 w-5 text-gray-400"
-          viewBox="0 0 20 20"
-          fill="currentColor"
-          aria-hidden="true"
-          data-slot="icon"
-        >
-          <path
-            fill-rule="evenodd"
-            d="M5.22 8.22a.75.75 0 0 1 1.06 0L10 11.94l3.72-3.72a.75.75 0 1 1 1.06 1.06l-4.25 4.25a.75.75 0 0 1-1.06 0L5.22 9.28a.75.75 0 0 1 0-1.06Z"
-            clip-rule="evenodd"
-          />
-        </svg>
-      </button>
+      </button> -->
     </div>
 
     <!-- jobs Availabe -->

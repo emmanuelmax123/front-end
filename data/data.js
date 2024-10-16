@@ -162,4 +162,17 @@ function generateJobDetailCard(job) {
     </div>`;
 }
 
-// the content jumps to the left when we reach the bottom of the content
+// search and location
+
+// btn with options
+function toggleDropdown(id) {
+  document.querySelectorAll(".relative #dropdown").forEach((dropDown) => {
+    if (dropDown.parentElement.id !== id) {
+      dropDown.classList.add("hidden");
+    }
+  });
+  let dropDown = document.querySelector(`#${id} #dropdown`);
+  dropDown.classList.toggle("hidden");
+}
+
+// build and design the save section
