@@ -11,7 +11,7 @@
 
     <title>Search Jobs</title>
   </head>
-  <body class="px-[84px]">
+  <body class="px-[84px] bg-[#f8f8f8]">
     <!-- nav starts -->
     <nav class="flex justify-between pt-5 mb-[44px]">
       <img src="assets/logo.svg" />
@@ -42,13 +42,14 @@
         </li>
       </ul>
     </nav>
+
     <!-- serach starts -->
     <div class="flex justify-center items-center gap-2 mb-6">
       <form action="">
         <input
           type="text"
           placeholder="Developer"
-          class="js-search-ph rounded-l-2xl w-[424px] py-2 px-7 border bg-transparent border-gray-300 focus:outline-none focus:ring-2 focus:ring-black focus:border-transparent"
+          class="js-search-ph rounded-l-lg w-[500px] h-[70px] py-2 px-7 border bg-transparent border-gray-300 focus:outline-none focus:ring-2 focus:ring-[#222222] focus:border-transparent"
         />
       </form>
 
@@ -57,11 +58,12 @@
         <input
           type="text"
           placeholder="Location"
-          class="js-location-ph bg-blue rounded-r-2xl w-[170px] py-2 px-10 border bg-transparent border-gray-300 focus:outline-none focus:ring-2 focus:ring-black focus:border-transparent"
+          class="js-location-ph bg-blue w-[200px] h-[70px] rounded-r-lg py-2 px-10 border bg-transparent border-gray-300 focus:outline-none focus:ring-2 focus:ring-[#222222] focus:border-transparent"
         />
         <img src="assets/location_on.svg" alt="" class="absolute left-2" />
       </form>
     </div>
+
     <!-- search/save starts -->
     <div
       class="flex justify-center items-center gap-[119px] border-b-2 border-gray-100 p-1 mb-[47px]"
@@ -69,30 +71,30 @@
       <div class="relative group">
         <p class="hover:">Search</p>
         <div
-          class="rounded-full w-[41px] h-[4px] ml-[2px] mt-[2px] absolute bg-black"
+          class="rounded-full w-[41px] h-[4px] ml-[2px] mt-[2px] absolute bg-[#222222]"
         ></div>
       </div>
 
       <div class="relative group items-center">
         <p class="hover:">Save</p>
         <div
-          class="rounded-full w-[24px] h-[4px] ml-[4px] mt-[2px] absolute bg-black opacity-0 group-hover:opacity-100"
+          class="rounded-full w-[24px] h-[4px] ml-[4px] mt-[2px] absolute bg-[#222222] opacity-0 group-hover:opacity-100"
         ></div>
       </div>
     </div>
+
     <!-- job options -->
-    <div class="flex justify-center items-center select-none">
-      <div
-        id="dropdown1"
-        class="flex justify-between items-center h-24 w-[460px] relative"
-      >
+    <div
+      class="jobOptions flex justify-center items-center select-none space-x-4"
+    >
+      <div id="dropdown1" class="flex justify-between items-center h-24">
         <button
-          onclick="toggleDropdown('dropdown1')"
-          class="inline-flex w-[144px] justify-center rounded-full bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50"
+          onclick="toggleDropdown('dropdown1') "
+          class="inline-flex justify-center items-center rounded-lg bg-[#ededed] px-3 py-2 text-sm font-semibold text-[#222222] shadow-sm ring-1 ring-inset ring-gray-300"
         >
-          Salary Range
+          <span class="m-2">Language</span>
           <svg
-            class="-mr-1 h-5 w-5 text-gray-400"
+            class="-mr-1 h-5 w-5 text-[#222222]"
             viewBox="0 0 20 20"
             fill="currentColor"
             aria-hidden="true"
@@ -104,27 +106,48 @@
               clip-rule="evenodd"
             />
           </svg>
-        </button>
 
-        <div
-          id="dropdown"
-          class="rounded border-gray-500 bg-white border-2 inline-flex divide-x-2 absolute ml-28"
-        >
-          <div class="cursor-pointer hover:bg-gray-300 p-2">1800+/-</div>
-          <div class="cursor-pointer hover:bg-gray-300 p-2">2300+/-</div>
-          <div class="cursor-pointer hover:bg-gray-300 p-2">3500+/-</div>
-          <div class="cursor-pointer hover:bg-gray-300 p-2">5000+</div>
-        </div>
+          <div id="Xaxisdropdown" class="rounded inline-flex ml-6 hidden">
+            <div
+              class="cursor-pointer p-2 mr-4 bg-[#f8f8f8] hover:bg-gray-300 rounded-md text-[#222222]"
+              data-value="English"
+              onclick="selectOption(this, 'Language')"
+            >
+              English
+            </div>
+            <div
+              class="cursor-pointer p-2 mr-4 bg-[#f8f8f8] hover:bg-gray-300 rounded-md text-[#222222]"
+              data-value="Hindi"
+              onclick="selectOption(this, 'Language')"
+            >
+              Hindi
+            </div>
+            <div
+              class="cursor-pointer p-2 mr-4 bg-[#f8f8f8] hover:bg-gray-300 rounded-md text-[#222222]"
+              data-value="Spanish"
+              onclick="selectOption(this, 'Language')"
+            >
+              Spanish
+            </div>
+            <div
+              class="cursor-pointer p-2 mr-4 bg-[#f8f8f8] hover:bg-gray-300 rounded-md text-[#222222]"
+              data-value="French"
+              onclick="selectOption(this, 'Language')"
+            >
+              French
+            </div>
+          </div>
+        </button>
       </div>
 
-      <!-- <div id="dropdown2" class="relative">
+      <div id="dropdown2" class="flex justify-between items-center h-24">
         <button
-          onclick="toggleDropdown('dropdown2')"
-          class="inline-flex w-[144px] justify-center gap-x-1.5 rounded-full bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50 mr-[50px]"
+          onclick="toggleDropdown('dropdown2') "
+          class="inline-flex justify-center items-center rounded-lg bg-[#ededed] px-3 py-2 text-sm font-semibold text-[#222222] ring-1 ring-inset ring-gray-300"
         >
-          Experience
+          <span class="m-2">Salary Range</span>
           <svg
-            class="-mr-1 h-5 w-5 text-gray-400"
+            class="-mr-1 h-5 w-5 text-[#222222]"
             viewBox="0 0 20 20"
             fill="currentColor"
             aria-hidden="true"
@@ -136,37 +159,138 @@
               clip-rule="evenodd"
             />
           </svg>
-        </button>
 
-        <div
-          id="dropdown"
-          class="rounded border-gray-500 bg-white absolute border-2 w-[100px] hidden"
-        >
-          <div class="cursor-pointer hover:bg-gray-300 p-2">Entry</div>
-          <div class="cursor-pointer hover:bg-gray-300 p-2">Mid</div>
-          <div class="cursor-pointer hover:bg-gray-300 p-2">senior</div>
-          <div class="cursor-pointer hover:bg-gray-300 p-2">Expert</div>
-        </div>
+          <div id="Xaxisdropdown" class="rounded inline-flex ml-6 hidden">
+            <div
+              class="cursor-pointer p-2 mr-4 bg-[#f8f8f8] hover:bg-gray-300 rounded-md"
+              data-value="1800"
+              onclick="selectOption(this, 'Salary Range')"
+            >
+              1800+/-
+            </div>
+            <div
+              class="cursor-pointer p-2 mr-4 bg-[#f8f8f8] hover:bg-gray-300 rounded-md"
+              data-value="2300"
+              onclick="selectOption(this, 'Salary Range')"
+            >
+              2300+/-
+            </div>
+            <div
+              class="cursor-pointer p-2 mr-4 bg-[#f8f8f8] hover:bg-gray-300 rounded-md"
+              data-value="3500"
+              onclick="selectOption(this, 'Salary Range')"
+            >
+              3500+/-
+            </div>
+            <div
+              class="cursor-pointer p-2 mr-4 bg-[#f8f8f8] hover:bg-gray-300 rounded-md"
+              data-value="5000"
+              onclick="selectOption(this, 'Salary Range')"
+            >
+              5000+
+            </div>
+          </div>
+        </button>
       </div>
 
-      <button
-        class="inline-flex w-[144px] justify-center gap-x-1.5 rounded-full bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50 mr-[50px]"
-      >
-        Experience
-        <svg
-          class="-mr-1 h-5 w-5 text-gray-400"
-          viewBox="0 0 20 20"
-          fill="currentColor"
-          aria-hidden="true"
-          data-slot="icon"
+      <div id="dropdown3" class="flex justify-between items-center h-24">
+        <button
+          onclick="toggleDropdown('dropdown3') "
+          class="inline-flex justify-center items-center rounded-lg bg-[#ededed] px-3 py-2 text-sm font-semibold text-[#222222] ring-1 ring-inset ring-gray-300"
         >
-          <path
-            fill-rule="evenodd"
-            d="M5.22 8.22a.75.75 0 0 1 1.06 0L10 11.94l3.72-3.72a.75.75 0 1 1 1.06 1.06l-4.25 4.25a.75.75 0 0 1-1.06 0L5.22 9.28a.75.75 0 0 1 0-1.06Z"
-            clip-rule="evenodd"
-          />
-        </svg>
-      </button> -->
+          <span class="m-2">Experience</span>
+          <svg
+            class="-mr-1 h-5 w-5 text-[#222222]"
+            viewBox="0 0 20 20"
+            fill="currentColor"
+            aria-hidden="true"
+            data-slot="icon"
+          >
+            <path
+              fill-rule="evenodd"
+              d="M5.22 8.22a.75.75 0 0 1 1.06 0L10 11.94l3.72-3.72a.75.75 0 1 1 1.06 1.06l-4.25 4.25a.75.75 0 0 1-1.06 0L5.22 9.28a.75.75 0 0 1 0-1.06Z"
+              clip-rule="evenodd"
+            />
+          </svg>
+
+          <div id="Xaxisdropdown" class="rounded inline-flex ml-6 hidden">
+            <div
+              class="cursor-pointer p-2 mr-4 bg-[#f8f8f8] hover:bg-gray-300 rounded-md"
+              data-value="Entry"
+              onclick="selectOption(this, 'Experience')"
+            >
+              Entry
+            </div>
+            <div
+              class="cursor-pointer p-2 mr-4 bg-[#f8f8f8] hover:bg-gray-300 rounded-md"
+              data-value="Mid"
+              onclick="selectOption(this, 'Experience')"
+            >
+              Mid
+            </div>
+            <div
+              class="cursor-pointer p-2 mr-4 bg-[#f8f8f8] hover:bg-gray-300 rounded-md"
+              data-value="Senior"
+              onclick="selectOption(this, 'Experience')"
+            >
+              Senior
+            </div>
+          </div>
+        </button>
+      </div>
+
+      <div id="dropdown4" class="flex justify-between items-center h-24">
+        <button
+          onclick="toggleDropdown('dropdown4') "
+          class="inline-flex justify-center items-center rounded-lg bg-[#ededed] px-3 py-2 text-sm font-semibold text-[#222222] ring-1 ring-inset ring-gray-300"
+        >
+          <span class="m-2">Job type</span>
+          <svg
+            class="-mr-1 h-5 w-5 text-[#222222]"
+            viewBox="0 0 20 20"
+            fill="currentColor"
+            aria-hidden="true"
+            data-slot="icon"
+          >
+            <path
+              fill-rule="evenodd"
+              d="M5.22 8.22a.75.75 0 0 1 1.06 0L10 11.94l3.72-3.72a.75.75 0 1 1 1.06 1.06l-4.25 4.25a.75.75 0 0 1-1.06 0L5.22 9.28a.75.75 0 0 1 0-1.06Z"
+              clip-rule="evenodd"
+            />
+          </svg>
+
+          <div id="Xaxisdropdown" class="rounded inline-flex ml-6 hidden">
+            <div
+              class="cursor-pointer p-2 mr-4 bg-[#f8f8f8] hover:bg-gray-300 rounded-md"
+              data-value="Fulltime"
+              onclick="selectOption(this, 'job hours')"
+            >
+              Full time
+            </div>
+            <div
+              class="cursor-pointer p-2 mr-4 bg-[#f8f8f8] hover:bg-gray-300 rounded-md"
+              data-value="Partime"
+              onclick="selectOption(this, 'job hours')"
+            >
+              Part time
+            </div>
+            <div
+              class="cursor-pointer p-2 mr-4 bg-[#f8f8f8] hover:bg-gray-300 rounded-md"
+              data-value="Contract"
+              onclick="selectOption(this, 'job hours')"
+            >
+              Contract
+            </div>
+            <div
+              class="cursor-pointer p-2 mr-4 bg-[#f8f8f8] hover:bg-gray-300 rounded-md"
+              data-value="Intership"
+              onclick="selectOption(this, 'job hours')"
+            >
+              Intership
+            </div>
+          </div>
+        </button>
+      </div>
     </div>
 
     <!-- jobs Availabe -->

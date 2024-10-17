@@ -89,7 +89,7 @@ let save = [];
 jobs.forEach((job, index) => {
   search += `
         <div
-          class="border-black border-2 w-[360px] mt-[25px] rounded-lg px-[13px] py-[13px] js-jobs"  data-index="${index}"
+          class="border-[#222222] border-2 w-[360px] mt-[25px] rounded-lg px-[13px] py-[13px] js-jobs"  data-index="${index}"
         >
           <div class="flex justify-between h-[40px] items-center">
             <img src="${job.logo}" alt="" class="w-[85px] logo" />
@@ -164,15 +164,43 @@ function generateJobDetailCard(job) {
 
 // search and location
 
-// btn with options
+// job options starts
 function toggleDropdown(id) {
-  document.querySelectorAll(".relative #dropdown").forEach((dropDown) => {
-    if (dropDown.parentElement.id !== id) {
+  // Hide other dropdowns except the clicked one
+  document.querySelectorAll(".flex #Xaxisdropdown").forEach((dropDown) => {
+    if (dropDown.closest(".flex").id !== id) {
       dropDown.classList.add("hidden");
     }
   });
-  let dropDown = document.querySelector(`#${id} #dropdown`);
+
+  // Toggle the clicked dropdown
+  let dropDown = document.querySelector(`#${id} #Xaxisdropdown`);
   dropDown.classList.toggle("hidden");
+}
+
+// Close the dropdown if clicked outside
+document.addEventListener("click", function (event) {
+  const dropdowns = document.querySelectorAll(".flex #Xaxisdropdown");
+  const buttons = document.querySelectorAll("[onclick^='toggleDropdown']");
+
+  let clickedInsideDropdown = Array.from(dropdowns).some((dropDown) =>
+    dropDown.contains(event.target)
+  );
+  let clickedOnButton = Array.from(buttons).some((button) =>
+    button.contains(event.target)
+  );
+
+  if (!clickedInsideDropdown && !clickedOnButton) {
+    dropdowns.forEach((dropDown) => dropDown.classList.add("hidden"));
+  }
+});
+
+// see what user selected
+function selectOption(element, dropdownId) {
+  // Get the selected value
+  const selectedValue = element.getAttribute("data-value");
+  // Display selected value
+  console.log(`Selected option from ${dropdownId}: ${selectedValue}`);
 }
 
 // build and design the save section
