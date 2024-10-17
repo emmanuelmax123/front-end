@@ -162,7 +162,24 @@ function generateJobDetailCard(job) {
     </div>`;
 }
 
-// search and location
+// detect user search and location input
+let jobRole = "";
+let jobLocation = "";
+const searchRole = document.getElementById("searchRole");
+const searchLocation = document.getElementById("searchLocation");
+
+searchRole.addEventListener("change", () => {
+  jobRole = searchRole.value;
+});
+searchLocation.addEventListener("change", () => {
+  jobLocation = searchLocation.value;
+});
+
+// send user search input to the database
+function sendDetails() {
+  console.log(jobRole);
+  console.log(jobLocation);
+}
 
 // job options starts
 function toggleDropdown(id) {

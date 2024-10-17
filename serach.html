@@ -48,8 +48,9 @@
       <form action="">
         <input
           type="text"
+          id="searchRole"
           placeholder="Developer"
-          class="js-search-ph rounded-l-lg w-[500px] h-[70px] py-2 px-7 border bg-transparent border-gray-300 focus:outline-none focus:ring-2 focus:ring-[#222222] focus:border-transparent"
+          class="js-search-ph rounded-l-lg w-[500px] h-[70px] py-2 px-7 border bg-transparent border-gray-300 focus:outline-none focus:ring-2 focus:ring-[#25666A] focus:border-transparent"
         />
       </form>
 
@@ -57,11 +58,19 @@
       <form action="" class="relative flex justify-center items-center">
         <input
           type="text"
+          id="searchLocation"
           placeholder="Location"
-          class="js-location-ph bg-blue w-[200px] h-[70px] rounded-r-lg py-2 px-10 border bg-transparent border-gray-300 focus:outline-none focus:ring-2 focus:ring-[#222222] focus:border-transparent"
+          class="js-location-ph bg-blue w-[200px] h-[70px] rounded-r-lg py-2 px-10 border bg-transparent border-gray-300 focus:outline-none focus:ring-2 focus:ring-[#25666A] focus:border-transparent"
         />
         <img src="assets/location_on.svg" alt="" class="absolute left-2" />
       </form>
+
+      <button
+        class="w-[50px] h-[50px] rounded-lg py-2 px-10 bg-[#25666A] text-[#f8f8f8] items-center justify-center flex"
+        onclick="sendDetails()"
+      >
+        Enter
+      </button>
     </div>
 
     <!-- search/save starts -->
