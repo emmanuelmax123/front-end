@@ -1297,6 +1297,11 @@ html {
   background-color: rgb(37 102 106 / var(--tw-bg-opacity));
 }
 
+.bg-\[\#9BCCCF\] {
+  --tw-bg-opacity: 1;
+  background-color: rgb(155 204 207 / var(--tw-bg-opacity));
+}
+
 .object-cover {
   -o-object-fit: cover;
      object-fit: cover;
@@ -1483,6 +1488,16 @@ html {
   --tw-ring-color: rgb(209 213 219 / var(--tw-ring-opacity));
 }
 
+.ring-\[\#659FA3\] {
+  --tw-ring-opacity: 1;
+  --tw-ring-color: rgb(101 159 163 / var(--tw-ring-opacity));
+}
+
+.ring-\[\#9BCCCF\] {
+  --tw-ring-opacity: 1;
+  --tw-ring-color: rgb(155 204 207 / var(--tw-ring-opacity));
+}
+
 .filter {
   filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);
 }
@@ -1542,6 +1557,11 @@ html {
 .hover\:bg-\[\#25666A\]:hover {
   --tw-bg-opacity: 1;
   background-color: rgb(37 102 106 / var(--tw-bg-opacity));
+}
+
+.hover\:bg-\[\#9BCCCF\]:hover {
+  --tw-bg-opacity: 1;
+  background-color: rgb(155 204 207 / var(--tw-bg-opacity));
 }
 
 .hover\:text-\[\#25666A\]:hover {
