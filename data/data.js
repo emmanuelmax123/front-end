@@ -89,12 +89,14 @@ let save = [];
 jobs.forEach((job, index) => {
   search += `
         <div
-          class="border-[#222222] border-2 w-[360px] mt-[25px] rounded-lg px-[13px] py-[13px] js-jobs"  data-index="${index}"
+          class="border-black border-2 w-[360px] mt-[25px] rounded-lg px-[13px] py-[13px] js-jobs"  data-index="${index}"
         >
           <div class="flex justify-between h-[40px] items-center">
             <img src="${job.logo}" alt="" class="w-[85px] logo" />
-            <img src="assets/save.svg" alt="" class="w-[20px] h-[24px] save" data-index="${index}" />
+            <div class="save-regular border-2 border-black" onclick="saveToSaved()"><i class="fa-regular fa-bookmark h-[24px] save  cursor-pointer" data-index="${index}"></i></div>
+            <div class="hidden save-solid"><i class="fa-solid fa-bookmark h-[24px] cursor-pointer" data-index="${index}" ></i></div>
           </div>
+
           <div class="flex w-[206px] mt-[15px]">
             <div>
               <h4 class="text-[14px] role">${job.role}</h4>
@@ -107,27 +109,40 @@ jobs.forEach((job, index) => {
 
 document.querySelector(".js-jobs-container").innerHTML = search;
 
-// save event listeneter
+// Save event listener for adding jobs to saved list
 document.querySelectorAll(".save").forEach((saved) => {
   saved.addEventListener("click", (e) => {
-    // makes it so that u only click on
+    // Makes it so that you only click on the save icon and not the parent
     e.stopPropagation();
 
     // Get the job save index
     const index = saved.getAttribute("data-index");
 
-    // add saved job to save
+    // Add saved job to save
     const jobToSave = jobs[index];
     if (!save.includes(jobToSave)) {
       save.push(jobToSave);
       console.log(`Saved job: ${jobToSave.role}`);
     } else {
-      console.log(`Job already saved: ${jobToSave.role}`);
+      save.splice(jobToSave, 1);
+      console.log(`Job has been removed: ${jobToSave.role}`);
     }
 
     console.log("Current saved jobs:", save);
   });
 });
+// working on saved icon
+function saveToSaved() {
+  let iconSave = document.querySelector(`.save-regular[data-index="${index}"]`);
+  let iconSaved = document.querySelector(`.save-solid[data-index="${index}"]`);
+  if ((iconSaved.classList.contains = "hidden")) {
+    iconSave.classList.remove = "hidden";
+    iconSave.classList.add == "hidden";
+  } else {
+    iconSaved.classList.add = "hidden";
+    iconSave.classList.remove = "hidden";
+  }
+}
 
 //event listeners for each job listing
 document.querySelectorAll(".js-jobs").forEach((job) => {
@@ -162,17 +177,45 @@ function generateJobDetailCard(job) {
     </div>`;
 }
 
-// detect user search and location input
+// job role, job loaction and dismiss icon
 let jobRole = "";
 let jobLocation = "";
 const searchRole = document.getElementById("searchRole");
 const searchLocation = document.getElementById("searchLocation");
+const dismissRole = document.querySelector(".dismissRole");
+const dismissLocation = document.querySelector(".dismissLocation");
 
-searchRole.addEventListener("change", () => {
+// detect user input and show dismiss icon
+searchRole.addEventListener("input", () => {
   jobRole = searchRole.value;
+  runDismissIcon(searchRole, dismissRole);
 });
+
 searchLocation.addEventListener("change", () => {
   jobLocation = searchLocation.value;
+  runDismissIcon(searchLocation, dismissLocation);
+});
+
+// display dismiss icon
+function runDismissIcon(inputElem, iconElem) {
+  if (inputElem.value !== "") {
+    iconElem.style.display = "inline-block";
+  } else {
+    iconElem.style.display = "none";
+  }
+}
+
+// Add event listener to dismiss role and location
+dismissRole.addEventListener("click", () => {
+  searchRole.value = "";
+  jobRole = "";
+  runDismissIcon(searchRole, dismissRole);
+});
+
+dismissLocation.addEventListener("click", () => {
+  searchLocation.value = "";
+  jobLocation = "";
+  runDismissIcon(searchLocation, dismissLocation);
 });
 
 // send user search input to the database
