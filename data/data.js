@@ -84,94 +84,99 @@ const jobs = [
 ];
 
 let search = "";
+
 let save = [];
 
-jobs.forEach((job, index) => {
-  search += `
-        <div
-          class="border-black border-2 w-[360px] mt-[25px] rounded-lg px-[13px] py-[13px] js-jobs"  data-index="${index}"
-        >
-          <div class="flex justify-between h-[40px] items-center">
-            <img src="${job.logo}" alt="" class="w-[85px] logo" />
-            <div class="save-regular border-2 border-black" onclick="saveToSaved()"><i class="fa-regular fa-bookmark h-[24px] save  cursor-pointer" data-index="${index}"></i></div>
-            <div class="hidden save-solid"><i class="fa-solid fa-bookmark h-[24px] cursor-pointer" data-index="${index}" ></i></div>
+// Function to render jobs
+function renderJobs() {
+  let search = "";
+  jobs.forEach((job, index) => {
+    search += `
+      <div
+        class="border-black border-2 w-[360px] mt-[25px] rounded-lg px-[13px] py-[13px] js-jobs" data-index="${index}"
+      >
+        <div class="flex justify-between h-[40px] items-center">
+          <img src="${job.logo}" alt="" class="w-[85px] h-[40px] logo" />
+          <div class="save cursor-pointer" data-index="${index}">
+            <i class="${
+              job.saved ? "fa-solid" : "fa-regular"
+            } fa-bookmark h-[24px]"></i>
           </div>
+        </div>
 
-          <div class="flex w-[206px] mt-[15px]">
-            <div>
-              <h4 class="text-[14px] role">${job.role}</h4>
-              <p class="location">${job.location}</p>
-              <p class="date posted">${job.datePosted}</p>
-            </div>
+        <div class="flex w-[206px] mt-[15px]">
+          <div>
+            <h4 class="text-[14px] role">${job.role}</h4>
+            <p class="location">${job.location}</p>
+            <p class="date posted">${job.datePosted}</p>
           </div>
-        </div>`;
-});
-
-document.querySelector(".js-jobs-container").innerHTML = search;
-
-// Save event listener for adding jobs to saved list
-document.querySelectorAll(".save").forEach((saved) => {
-  saved.addEventListener("click", (e) => {
-    // Makes it so that you only click on the save icon and not the parent
-    e.stopPropagation();
-
-    // Get the job save index
-    const index = saved.getAttribute("data-index");
-
-    // Add saved job to save
-    const jobToSave = jobs[index];
-    if (!save.includes(jobToSave)) {
-      save.push(jobToSave);
-      console.log(`Saved job: ${jobToSave.role}`);
-    } else {
-      save.splice(jobToSave, 1);
-      console.log(`Job has been removed: ${jobToSave.role}`);
-    }
-
-    console.log("Current saved jobs:", save);
+        </div>
+      </div>`;
   });
-});
-// working on saved icon
-function saveToSaved() {
-  let iconSave = document.querySelector(`.save-regular[data-index="${index}"]`);
-  let iconSaved = document.querySelector(`.save-solid[data-index="${index}"]`);
-  if ((iconSaved.classList.contains = "hidden")) {
-    iconSave.classList.remove = "hidden";
-    iconSave.classList.add == "hidden";
-  } else {
-    iconSaved.classList.add = "hidden";
-    iconSave.classList.remove = "hidden";
-  }
+
+  document.querySelector(".js-jobs-container").innerHTML = search;
+
+  // Re-attach event listeners
+  document.querySelectorAll(".save").forEach((saves) => {
+    saves.addEventListener("click", handleSaveClick);
+  });
+
+  // Re-attach event listeners for job cards
+  document.querySelectorAll(".js-jobs").forEach((job) => {
+    job.addEventListener("click", (e) => {
+      const index = e.currentTarget.getAttribute("data-index");
+      const jobDetail = generateJobDetailCard(jobs[index]);
+      document.querySelector(".js-job-info").innerHTML = jobDetail;
+    });
+  });
 }
 
-//event listeners for each job listing
-document.querySelectorAll(".js-jobs").forEach((job) => {
-  job.addEventListener("click", (e) => {
-    // this will get the current index
-    const index = e.currentTarget.getAttribute("data-index");
+// Handle save click event
+function handleSaveClick(e) {
+  e.stopPropagation();
+  const index = e.currentTarget.getAttribute("data-index");
+  const job = jobs[index];
 
-    // this will generate a job detail based on the index
-    const jobDetail = generateJobDetailCard(jobs[index]);
-    document.querySelector(".js-job-info").innerHTML = jobDetail;
-  });
-});
+  // Toggle saved status
+  job.saved = !job.saved;
 
-// display the first job
+  // Update save list
+  if (job.saved) {
+    save.push(job);
+    console.log(`Saved job: ${job.role}`);
+  } else {
+    save = save.filter((savedJob) => savedJob !== job);
+    console.log(`Job has been removed: ${job.role}`);
+  }
+
+  // Refresh the job listings
+  renderJobs();
+
+  console.log("Current saved jobs:", save);
+}
+
+// Initial rendering of jobs
+renderJobs();
+
+// Initial display of the first job detail
 document.querySelector(".js-jobs").click();
 
+// Generate job detail function remains the same
 function generateJobDetailCard(job) {
   return `
     <div class="border-black border-2 w-[950px] rounded-lg px-[36px] py-[36px] js-job-card-container">
       <div class="flex justify-between items-center mb-[14px]">
         <img src="${job.logo}" alt="" class="w-[115px]" />
-        <img src="assets/save.svg" alt="" class="w-[23px]" />
+         <i class="${
+           job.saved ? "fa-solid" : "fa-regular"
+         } fa-bookmark h-[24px]"></i>
       </div>
       <div class="pb-[12px]">
         <h4 class="text-[24px]">${job.role}</h4>
         <p>${job.location}</p>
       </div>
       <div class="job-text js-job-info">
-        <h4 class="text-[20px] pt-[28px]">Abouth the role</h4>
+        <h4 class="text-[20px] pt-[28px]">About the role</h4>
         <p class="description">${job.jobInfo}</p>
       </div>
     </div>`;
@@ -264,3 +269,6 @@ function selectOption(element, dropdownId) {
 }
 
 // build and design the save section
+
+// make div and save icon the same
+// solve save icon switch issue
