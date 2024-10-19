@@ -114,7 +114,6 @@ jobs.forEach((job, index) => {
 document.querySelector(".js-jobs-container").innerHTML = search;
 
 // Save event listener for adding jobs to saved list
-
 document.querySelectorAll(".save").forEach((saves) => {
   saves.addEventListener("click", (e) => {
     e.stopPropagation(); // Prevent parent click
@@ -136,6 +135,11 @@ document.querySelectorAll(".save").forEach((saves) => {
     const saveIcon = saves.querySelector("i");
     saveIcon.classList.toggle("fa-solid", jobToSave.saved);
     saveIcon.classList.toggle("fa-regular", !jobToSave.saved);
+
+    // Also update the icon in the job detail view
+    const jobDetailIcon = document.querySelector(".js-job-info i");
+    jobDetailIcon.classList.toggle("fa-solid", jobToSave.saved);
+    jobDetailIcon.classList.toggle("fa-regular", !jobToSave.saved);
 
     console.log(`Saved jobs:`, save);
   });
@@ -174,9 +178,12 @@ function generateJobDetailCard(job) {
     <div class="border-black border-2 w-[950px] rounded-lg px-[36px] py-[36px] js-job-card-container">
       <div class="flex justify-between items-center mb-[14px]">
         <img src="${job.logo}" alt="" class="w-[115px]" />
-        <i class="${
-          job.saved ? "fa-solid" : "fa-regular"
-        } fa-bookmark h-[24px]"></i>
+        <div class="flex justify-between items-center h-[70px]">
+        <div class="flex justify-center items-center w-[300px] bg-[#25666A] text-white mr-[50px] h-[40px] my-2 rounded-lg">Apply for role</div>
+          <i class="${
+            job.saved ? "fa-solid" : "fa-regular"
+          } fa-bookmark h-[24px]"></i>
+         </div>
       </div>
       <div class="pb-[12px]">
         <h4 class="text-[24px]">${job.role}</h4>
@@ -257,7 +264,7 @@ function sendDetails() {
   console.log(jobRole);
   console.log(jobLocation);
 }
+
 // build and design the save section
 
-// make div and save icon the same
 // solve save icon switch issue
