@@ -84,98 +84,104 @@ const jobs = [
 ];
 
 let search = "";
-
 let save = [];
 
-// Function to render jobs
-function renderJobs() {
-  let search = "";
-  jobs.forEach((job, index) => {
-    search += `
-      <div
-        class="border-black border-2 w-[360px] mt-[25px] rounded-lg px-[13px] py-[13px] js-jobs" data-index="${index}"
-      >
-        <div class="flex justify-between h-[40px] items-center">
-          <img src="${job.logo}" alt="" class="w-[85px] h-[40px] logo" />
-          <div class="save cursor-pointer" data-index="${index}">
-            <i class="${job.saved ? "fa-solid" : "fa-regular"} fa-bookmark"></i>
+// Render job cards
+jobs.forEach((job, index) => {
+  search += `
+        <div
+          class="border-black border-2 w-[360px] mt-[25px] rounded-lg px-[13px] py-[13px] js-jobs" data-index="${index}"
+        >
+          <div class="flex justify-between h-[40px] items-center">
+            <img src="${job.logo}" alt="" class="w-[85px] h-[40px] logo" />
+            <div class="save cursor-pointer" data-index="${index}">
+              <i class="fa-regular fa-bookmark h-[24px]"></i>
+            </div>
+            <div class="hidden save-solid">
+              <i class="fa-solid fa-bookmark h-[24px] cursor-pointer"></i>
+            </div>
           </div>
-        </div>
-
-        <div class="flex w-[206px] mt-[15px]">
-          <div>
-            <h4 class="text-[14px] role">${job.role}</h4>
-            <p class="location">${job.location}</p>
-            <p class="date posted">${job.datePosted}</p>
+          <div class="flex w-[206px] mt-[15px]">
+            <div>
+              <h4 class="text-[14px] role">${job.role}</h4>
+              <p class="location">${job.location}</p>
+              <p class="date posted">${job.datePosted}</p>
+            </div>
           </div>
-        </div>
-      </div>`;
+        </div>`;
+});
+
+document.querySelector(".js-jobs-container").innerHTML = search;
+
+// Save event listener for adding jobs to saved list
+
+document.querySelectorAll(".save").forEach((saves) => {
+  saves.addEventListener("click", (e) => {
+    e.stopPropagation(); // Prevent parent click
+
+    const index = saves.closest(".js-jobs").getAttribute("data-index");
+    const jobToSave = jobs[index];
+
+    if (jobToSave.saved) {
+      // Toggle to unsave
+      jobToSave.saved = false;
+      save = save.filter((job) => job !== jobToSave);
+    } else {
+      // Save job
+      jobToSave.saved = true;
+      save.push(jobToSave);
+    }
+
+    // Update Icons
+    const saveIcon = saves.querySelector("i");
+    saveIcon.classList.toggle("fa-solid", jobToSave.saved);
+    saveIcon.classList.toggle("fa-regular", !jobToSave.saved);
+
+    console.log(`Saved jobs:`, save);
   });
+});
 
-  document.querySelector(".js-jobs-container").innerHTML = search;
-
-  // Re-attach event listeners
-  document.querySelectorAll(".save").forEach((saves) => {
-    saves.addEventListener("click", handleSaveClick);
+// Job card click event
+document.querySelectorAll(".js-jobs").forEach((job) => {
+  job.addEventListener("click", (e) => {
+    const index = e.currentTarget.getAttribute("data-index");
+    const jobDetail = generateJobDetailCard(jobs[index]);
+    document.querySelector(".js-job-info").innerHTML = jobDetail;
   });
+});
 
-  // Re-attach event listeners for job cards
-  document.querySelectorAll(".js-jobs").forEach((job) => {
-    job.addEventListener("click", (e) => {
+// Job card click event
+
+document.querySelectorAll(".js-jobs").forEach((job) => {
+  job.addEventListener("click", (e) => {
+    // Check if the clicked element is not the save icon
+    if (!e.target.closest(".save")) {
       const index = e.currentTarget.getAttribute("data-index");
       const jobDetail = generateJobDetailCard(jobs[index]);
       document.querySelector(".js-job-info").innerHTML = jobDetail;
-    });
+    }
   });
+});
+
+// Display the first job
+if (document.querySelector(".js-jobs")) {
+  document.querySelector(".js-jobs").click();
 }
 
-// Handle save click event
-function handleSaveClick(e) {
-  e.stopPropagation();
-  const index = e.currentTarget.getAttribute("data-index");
-  const job = jobs[index];
-
-  // Toggle saved status
-  job.saved = !job.saved;
-
-  // Update save list
-  if (job.saved) {
-    save.push(job);
-    console.log(`Saved job: ${job.role}`);
-  } else {
-    save = save.filter((savedJob) => savedJob !== job);
-    console.log(`Job has been removed: ${job.role}`);
-  }
-
-  // Refresh the job listings
-  renderJobs();
-
-  console.log("Current saved jobs:", save);
-}
-
-// Initial rendering of jobs
-renderJobs();
-
-// Initial display of the first job detail
-document.querySelector(".js-jobs").click();
-
-// Generate job detail function remains the same
+// Generate job details
 function generateJobDetailCard(job) {
   return `
     <div class="border-black border-2 w-[950px] rounded-lg px-[36px] py-[36px] js-job-card-container">
       <div class="flex justify-between items-center mb-[14px]">
-        <img src="${job.logo}" class="w-[115px]" />
-        <div class="flex justify-between items-center bg-[#659FA3] w-[300px]" >
-          <div class="w-[250px] bg-[#25666A] text-white flex justify-between items-center px-2 py-4 rounded-md cursor-pointer h-[40px] mr-24 ">Apply For Role</div>
-          <i class="${job.saved ? "fa-solid" : "fa-regular"} fa-bookmark"></i>
-        </div>  
+        <img src="${job.logo}" alt="" class="w-[115px]" />
+        <i class="${
+          job.saved ? "fa-solid" : "fa-regular"
+        } fa-bookmark h-[24px]"></i>
       </div>
-
       <div class="pb-[12px]">
         <h4 class="text-[24px]">${job.role}</h4>
         <p>${job.location}</p>
       </div>
-
       <div class="job-text js-job-info">
         <h4 class="text-[20px] pt-[28px]">About the role</h4>
         <p class="description">${job.jobInfo}</p>
@@ -183,7 +189,7 @@ function generateJobDetailCard(job) {
     </div>`;
 }
 
-// job role, job loaction and dismiss icon
+// Search, Dismiss Icons & Dropdown functionality
 let jobRole = "";
 let jobLocation = "";
 const searchRole = document.getElementById("searchRole");
@@ -191,7 +197,6 @@ const searchLocation = document.getElementById("searchLocation");
 const dismissRole = document.querySelector(".dismissRole");
 const dismissLocation = document.querySelector(".dismissLocation");
 
-// detect user input and show dismiss icon
 searchRole.addEventListener("input", () => {
   jobRole = searchRole.value;
   runDismissIcon(searchRole, dismissRole);
@@ -202,16 +207,10 @@ searchLocation.addEventListener("change", () => {
   runDismissIcon(searchLocation, dismissLocation);
 });
 
-// display dismiss icon
 function runDismissIcon(inputElem, iconElem) {
-  if (inputElem.value !== "") {
-    iconElem.style.display = "inline-block";
-  } else {
-    iconElem.style.display = "none";
-  }
+  iconElem.style.display = inputElem.value ? "inline-block" : "none";
 }
 
-// Add event listener to dismiss role and location
 dismissRole.addEventListener("click", () => {
   searchRole.value = "";
   jobRole = "";
@@ -224,27 +223,15 @@ dismissLocation.addEventListener("click", () => {
   runDismissIcon(searchLocation, dismissLocation);
 });
 
-// send user search input to the database
-function sendDetails() {
-  console.log(jobRole);
-  console.log(jobLocation);
-}
-
-// job options starts
 function toggleDropdown(id) {
-  // Hide other dropdowns except the clicked one
   document.querySelectorAll(".flex #Xaxisdropdown").forEach((dropDown) => {
-    if (dropDown.closest(".flex").id !== id) {
-      dropDown.classList.add("hidden");
-    }
+    if (dropDown.closest(".flex").id !== id) dropDown.classList.add("hidden");
   });
 
-  // Toggle the clicked dropdown
-  let dropDown = document.querySelector(`#${id} #Xaxisdropdown`);
+  const dropDown = document.querySelector(`#${id} #Xaxisdropdown`);
   dropDown.classList.toggle("hidden");
 }
 
-// Close the dropdown if clicked outside
 document.addEventListener("click", function (event) {
   const dropdowns = document.querySelectorAll(".flex #Xaxisdropdown");
   const buttons = document.querySelectorAll("[onclick^='toggleDropdown']");
@@ -261,14 +248,15 @@ document.addEventListener("click", function (event) {
   }
 });
 
-// see what user selected
 function selectOption(element, dropdownId) {
-  // Get the selected value
   const selectedValue = element.getAttribute("data-value");
-  // Display selected value
   console.log(`Selected option from ${dropdownId}: ${selectedValue}`);
 }
 
+function sendDetails() {
+  console.log(jobRole);
+  console.log(jobLocation);
+}
 // build and design the save section
 
 // make div and save icon the same
