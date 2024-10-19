@@ -98,9 +98,7 @@ function renderJobs() {
         <div class="flex justify-between h-[40px] items-center">
           <img src="${job.logo}" alt="" class="w-[85px] h-[40px] logo" />
           <div class="save cursor-pointer" data-index="${index}">
-            <i class="${
-              job.saved ? "fa-solid" : "fa-regular"
-            } fa-bookmark h-[24px]"></i>
+            <i class="${job.saved ? "fa-solid" : "fa-regular"} fa-bookmark"></i>
           </div>
         </div>
 
@@ -166,15 +164,18 @@ function generateJobDetailCard(job) {
   return `
     <div class="border-black border-2 w-[950px] rounded-lg px-[36px] py-[36px] js-job-card-container">
       <div class="flex justify-between items-center mb-[14px]">
-        <img src="${job.logo}" alt="" class="w-[115px]" />
-         <i class="${
-           job.saved ? "fa-solid" : "fa-regular"
-         } fa-bookmark h-[24px]"></i>
+        <img src="${job.logo}" class="w-[115px]" />
+        <div class="flex justify-between items-center bg-[#659FA3] w-[300px]" >
+          <div class="w-[250px] bg-[#25666A] text-white flex justify-between items-center px-2 py-4 rounded-md cursor-pointer h-[40px] mr-24 ">Apply For Role</div>
+          <i class="${job.saved ? "fa-solid" : "fa-regular"} fa-bookmark"></i>
+        </div>  
       </div>
+
       <div class="pb-[12px]">
         <h4 class="text-[24px]">${job.role}</h4>
         <p>${job.location}</p>
       </div>
+
       <div class="job-text js-job-info">
         <h4 class="text-[20px] pt-[28px]">About the role</h4>
         <p class="description">${job.jobInfo}</p>
