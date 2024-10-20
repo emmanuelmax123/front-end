@@ -4,6 +4,7 @@ const jobs = [
     role: "Web Developer",
     location: "Delft",
     datePosted: "1 week ago",
+    saved: false,
     jobInfo:
       "Job Description: We are looking for a Web Developer to join our team. You will be responsible for developing and maintaining our website, ensuring it is fast, responsive, and user-friendly. The ideal candidate has a passion for coding, problem-solving, and creating seamless web experiences. Expectation: Lorem ipsum dolor sit, amet consectetur adipisicing elit. Aspernatur, maiores. Eaque quasi quaerat architecto ipsam doloribus voluptates tempore eveniet. Mollitia repellendus cum harum autem eum placeat facilis, adipisci voluptates vitae enim culpa laborum earum accusantium velit molestiae recusandae sint iusto, dolor, ipsum veritatis porro provident sequi. Maiores accusantium, eum nisi incidunt quisquam, expedita nesciunt neque accusamus necessitatibus molestiae repellat! Ipsa distinctio incidunt quasi eum ad veritatis vitae dolorem nihil inventore. Iusto est ad rerum dolorem nesciunt tenetur cum suscipit atque sit assumenda explicabo harum, eos modi veritatis quas aliquam alias accusantium! Nobis maxime consectetur esse voluptatum eum tempora voluptatem consequuntur autem nisi hic iusto saepe cupiditate, ut facere doloremque tempore ipsa pariatur. Laudantium praesentium consectetur voluptate, vero quae beatae dolor facilis iusto, excepturi atque aut nihil, dolorum illo ratione totam eius ea inventore laboriosam debitis corporis sit. Accusamus, at deserunt velit tenetur architecto, accusantium corporis ea, nihil dolorum aut numquam vel quas? Similique quam quibusdam temporibus minima deserunt ipsum omnis beatae atque laboriosam corporis, dolore facere accusantium optio odit illum. Alias vitae dicta, non ex explicabo asperiores tenetur fuga nulla, ullam pariatur quidem repellat magnam modi, accusantium autem eligendi suscipit aut. Iure quod iusto distinctio quis ut expedita, officiis unde facilis harum omnis obcaecati sint consequuntur, est quo sequi hic libero nulla vitae, beatae aspernatur aperiam! Animi, ipsum tempore? Delectus, sequi non nisi aut, praesentium tenetur iste consequatur suscipit voluptatem quia fugiat, numquam officia neque. Accusamus est laudantium illum soluta, nihil eos perferendis magni iure suscipit dolor expedita libero nesciunt voluptatem fuga, veritatis inventore, pariatur fugiat aspernatur exercitationem amet mollitia! Assumenda molestias ipsam voluptatum consequatur necessitatibus quisquam omnis quidem voluptatem fugiat doloribus placeat, similique vel reiciendis. Nulla dolorem fugiat, animi amet architecto omnis quis expedita praesentium culpa neque at repellendus natus! Atque possimus, sequi earum autem tempore quam cumque eos quo illo soluta ea laboriosa.",
   },
@@ -13,6 +14,7 @@ const jobs = [
     role: "Jnr Full stack Developer",
     location: "Amstaerdam",
     datePosted: "2 days ago",
+    saved: false,
     jobInfo:
       "Job Description: We are looking for a Jnr Full stack Developer to join our team. You will be responsible for developing and maintaining our website, ensuring it is fast, responsive, and user-friendly. The ideal candidate has a passion for coding, problem-solving, and creating seamless web experiences.",
   },
@@ -21,6 +23,7 @@ const jobs = [
     role: "Snr Full stack Developer",
     location: "Amstaerdam-North",
     datePosted: "6 days ago",
+    saved: false,
     jobInfo:
       "Job Description: We are looking for a skilled Snr Full stack Developer to join our team. You will be responsible for developing and maintaining our website, ensuring it is fast, responsive, and user-friendly. The ideal candidate has a passion for coding, problem-solving, and creating seamless web experiences.",
   },
@@ -30,6 +33,7 @@ const jobs = [
     role: "Sales Advisor",
     location: "Amstaerdam-South",
     datePosted: "1 day ago",
+    saved: false,
     jobInfo:
       "Job Description: We are looking for a skilled Sales Advisor to join our team. You will be responsible for developing and maintaining our website, ensuring it is fast, responsive, and user-friendly. The ideal candidate has a passion for coding, problem-solving, and creating seamless web experiences.",
   },
@@ -38,6 +42,7 @@ const jobs = [
     role: "Sales Advisor",
     location: "Amstaerdam-South",
     datePosted: "1 day ago",
+    saved: false,
     jobInfo:
       "Job Description: We are looking for a skilled Sales Advisor to join our team. You will be responsible for developing and maintaining our website, ensuring it is fast, responsive, and user-friendly. The ideal candidate has a passion for coding, problem-solving, and creating seamless web experiences.",
   },
@@ -46,6 +51,7 @@ const jobs = [
     role: "Jnr Sales Advisor",
     location: "Amstaerdam-South",
     datePosted: "1 day ago",
+    saved: false,
     jobInfo:
       "Job Description: We are looking for a skilled Sales Advisor to join our team. You will be responsible for developing and maintaining our website, ensuring it is fast, responsive, and user-friendly. The ideal candidate has a passion for coding, problem-solving, and creating seamless web experiences.",
   },
@@ -54,6 +60,7 @@ const jobs = [
     role: "Snr Sales Analyist",
     location: "Amstaerdam-South",
     datePosted: "1 day ago",
+    saved: false,
     jobInfo:
       "Job Description: We are looking for a skilled Sales Advisor to join our team. You will be responsible for developing and maintaining our website, ensuring it is fast, responsive, and user-friendly. The ideal candidate has a passion for coding, problem-solving, and creating seamless web experiences.",
   },
@@ -62,6 +69,7 @@ const jobs = [
     role: "Recuriter",
     location: "Amstaerdam-South",
     datePosted: "1 day ago",
+    saved: false,
     jobInfo:
       "Job Description: We are looking for a skilled Sales Advisor to join our team. You will be responsible for developing and maintaining our website, ensuring it is fast, responsive, and user-friendly. The ideal candidate has a passion for coding, problem-solving, and creating seamless web experiences.",
   },
@@ -70,6 +78,7 @@ const jobs = [
     role: "Manager",
     location: "Amstaerdam-South",
     datePosted: "1 day ago",
+    saved: false,
     jobInfo:
       "Job Description: We are looking for a skilled Sales Advisor to join our team. You will be responsible for developing and maintaining our website, ensuring it is fast, responsive, and user-friendly. The ideal candidate has a passion for coding, problem-solving, and creating seamless web experiences.",
   },
@@ -78,6 +87,7 @@ const jobs = [
     role: "Sales Manager",
     location: "Amstaerdam-South",
     datePosted: "1 day ago",
+    saved: false,
     jobInfo:
       "Job Description: We are looking for a skilled Sales Advisor to join our team. You will be responsible for developing and maintaining our website, ensuring it is fast, responsive, and user-friendly. The ideal candidate has a passion for coding, problem-solving, and creating seamless web experiences.",
   },
@@ -155,7 +165,6 @@ document.querySelectorAll(".js-jobs").forEach((job) => {
 });
 
 // Job card click event
-
 document.querySelectorAll(".js-jobs").forEach((job) => {
   job.addEventListener("click", (e) => {
     // Check if the clicked element is not the save icon
@@ -267,6 +276,56 @@ function sendDetails() {
   console.log(jobRole);
   console.log(jobLocation);
 }
+
 // build and design the save section
+
+function saveJobs() {
+  // creating a grid contaner
+  let savedJobsHTML = "";
+
+  jobs.forEach((job, index) => {
+    if (job.saved === true) {
+      const savedJobsIndex = `
+        <div class="border-black border-2 w-[500px]  rounded-lg px-[13px] py-[13px] js-jobs" data-index="${index}">
+            <div class="flex justify-between h-[90px] items-center">
+              <img src="${job.logo}" alt="" class="w-[85px] h-[70px] logo" />
+              <div class="save cursor-pointer" data-index="${index}">
+                <i class="fa-regular fa-bookmark h-[35px]"></i>
+              </div>
+              <div class="hidden save-solid">
+                <i class="fa-solid fa-bookmark h-[24px] cursor-pointer"></i>
+              </div>
+            </div>
+      
+            <div class="flex w-[206px] mt-[15px]">
+              <div>
+                <h4 class="text-[14px] role">${job.role}</h4>
+                <p class="location">${job.location}</p>
+                <p class="date posted">${job.datePosted}</p>
+              </div>
+            </div>
+        </div>`;
+      savedJobsHTML += savedJobsIndex;
+    }
+  });
+
+  // Check if there are saved jobs and update the content
+  if (savedJobsHTML) {
+    document.querySelector(".js-content").innerHTML = `
+    
+        <div class="flex-none w-full grid grid-cols-2 gap-1 mt-[50px]">
+          ${savedJobsHTML}
+        </div>
+      `;
+  } else {
+    document.querySelector(".js-content").innerHTML = `
+      <div class="flex justify-center items-center mt-40 w-full">
+        <div class="text-center">
+          <h1 class"mb-20">No saved jobs.</h1>
+          <img src="assets/nosaved.jpg" class="w-[400px] h-[300px]">
+        </div>
+      </div>`;
+  }
+}
 
 // solve save icon switch issue
