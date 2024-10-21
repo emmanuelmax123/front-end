@@ -287,7 +287,7 @@ function saveJobs() {
   jobs.forEach((job, index) => {
     if (job.saved === true) {
       const savedJobsIndex = `
-        <div class="border-black border-2 w-[500px] rounded-lg px-[13px] py-[13px] js-jobs " data-index="${index}">
+        <div class="border-black border-2 w-[400px] rounded-lg px-[13px] py-[13px] js-jobs " data-index="${index}" style="height: 440px;">
             <div class="flex justify-between h-[90px] items-center">
               <img src="${job.logo}" alt="" class="w-[85px] h-[70px] logo" />
               <div class="save cursor-pointer" data-index="${index}">
@@ -298,16 +298,16 @@ function saveJobs() {
               </div>
             </div>
       
-            <div class="flex w-[206px] mt-[15px]">
+            <div class="flex w-fit mt-[15px]">
               <div>
-                <h4 class="text-[14px] role">${job.role}</h4>
-                <p class="location">${job.location}</p>
-                <p class="date posted">${job.datePosted}</p>
+                <h4 class="text-[20px] role">${job.role}</h4>
+                <h5 class="location">${job.location}</h5>
+                <h6 class="date posted">${job.datePosted}</h6>
               </div>
             </div>
-            <div class="overflow-hidden h-[200px] pb-[12px]">
-              <h4 class="text-[20px] pt-[28px]">About the role</h4>
-              <p class="line-clamp-2">${job.jobInfo.substring(0, 100)}</p>
+            <div class="overflow-hidden pb-[12px]" style="height: 180px;">
+              <h4 class="text-[16px] pt-[28px]">About the role</h4>
+              <p style="overflow: hidden;display: -webkit-box;-webkit-box-orient: vertical;-webkit-line-clamp: 4;">${job.jobInfo}</p>
             </div>
             <a href="" class="flex justify-center items-center w-fit bg-[#25666A] text-white h-[40px] my-2 rounded-lg cursor-pointer">Apply for role</a>
             
@@ -319,8 +319,7 @@ function saveJobs() {
   // Check if there are saved jobs and update the content
   if (savedJobsHTML) {
     document.querySelector(".js-content").innerHTML = `
-    
-        <div class="flex-none w-full grid grid-cols-2 gap-2 mt-[50px]">
+        <div class="flex-none w-full grid grid-cols-2 gap-2 mt-[50px]" style="place-items: center; gap:3rem; grid-template-columns: repeat(3, minmax(0, 1fr));margin-top: 50px;">
           ${savedJobsHTML}
         </div>
       `;
