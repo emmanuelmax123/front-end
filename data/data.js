@@ -1,6 +1,7 @@
 const jobs = [
   {
     logo: "assets/logo.svg",
+    id: 1234,
     role: "Web Developer",
     location: "Delft",
     datePosted: "1 week ago",
@@ -11,6 +12,7 @@ const jobs = [
 
   {
     logo: "assets/logo.svg",
+    id: 2345,
     role: "Jnr Full stack Developer",
     location: "Amstaerdam",
     datePosted: "2 days ago",
@@ -20,6 +22,7 @@ const jobs = [
   },
   {
     logo: "assets/logo.svg",
+    id: 3456,
     role: "Snr Full stack Developer",
     location: "Amstaerdam-North",
     datePosted: "6 days ago",
@@ -30,6 +33,7 @@ const jobs = [
 
   {
     logo: "assets/logo.svg",
+    id: 4567,
     role: "Sales Advisor",
     location: "Amstaerdam-South",
     datePosted: "1 day ago",
@@ -39,6 +43,7 @@ const jobs = [
   },
   {
     logo: "assets/logo.svg",
+    id: 5678,
     role: "Sales Advisor",
     location: "Amstaerdam-South",
     datePosted: "1 day ago",
@@ -48,6 +53,7 @@ const jobs = [
   },
   {
     logo: "assets/logo.svg",
+    id: 6789,
     role: "Jnr Sales Advisor",
     location: "Amstaerdam-South",
     datePosted: "1 day ago",
@@ -57,6 +63,7 @@ const jobs = [
   },
   {
     logo: "assets/logo.svg",
+    id: 7890,
     role: "Snr Sales Analyist",
     location: "Amstaerdam-South",
     datePosted: "1 day ago",
@@ -66,6 +73,7 @@ const jobs = [
   },
   {
     logo: "assets/logo.svg",
+    id: 8901,
     role: "Recuriter",
     location: "Amstaerdam-South",
     datePosted: "1 day ago",
@@ -75,6 +83,7 @@ const jobs = [
   },
   {
     logo: "assets/logo.svg",
+    id: 9012,
     role: "Manager",
     location: "Amstaerdam-South",
     datePosted: "1 day ago",
@@ -84,6 +93,7 @@ const jobs = [
   },
   {
     logo: "assets/logo.svg",
+    id: 1239,
     role: "Sales Manager",
     location: "Amstaerdam-South",
     datePosted: "1 day ago",
@@ -134,12 +144,15 @@ document.querySelectorAll(".save").forEach((saves) => {
     if (jobToSave.saved) {
       // Toggle to unsave
       jobToSave.saved = false;
-      save = save.filter((job) => job !== jobToSave);
+      save = save.filter((job) => job.id !== jobToSave.id);
+      localStorage.setItem("jobsaved", JSON.stringify(save));
     } else {
       // Save job
       jobToSave.saved = true;
       save.push(jobToSave);
+      localStorage.setItem("jobsaved", JSON.stringify(save));
     }
+    console.log(localStorage);
 
     // Update Icons
     const saveIcon = saves.querySelector("i");
@@ -277,10 +290,9 @@ function sendDetails() {
   console.log(jobLocation);
 }
 
-// build and design the save section
+// saved section
 
 function saveJobs() {
-  // creating a grid contaner
   let savedJobsHTML = "";
 
   jobs.forEach((job, index) => {
@@ -324,10 +336,10 @@ function saveJobs() {
       `;
   } else {
     document.querySelector(".js-content").innerHTML = `
-      <div class="flex justify-center items-center mt-40 w-full mb-80">
+      <div class="flex justify-center items-center mt-40 w-full mb-30">
         <div class="text-center">
           <h1 class"mb-20">No saved jobs.</h1>
-          <img src="assets/nosaved.jpg" class="w-[400px] h-[300px]">
+          <img src="assets/nosaved.jpg" class="w-[400px] h-[400px]">
         </div>
       </div>`;
   }
