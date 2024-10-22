@@ -201,8 +201,7 @@ function generateJobDetailCard(job) {
         <p>${job.location}</p>
       </div>
       
-      <div class=" flex flex-col h-[200px]" style="overflow-y: scroll;"
->
+      <div class=" flex flex-col h-[200px]">
         <h4 class="text-[20px] pt-[28px]">About the role</h4>
         <p class="overflow-y-scroll">${job.jobInfo}</p>
       </div>
@@ -305,11 +304,11 @@ function saveJobs() {
                 <h6 class="date posted">${job.datePosted}</h6>
               </div>
             </div>
-            <div class="overflow-hidden pb-[12px]" style="height: 180px;">
+            <div class="h-[180px] pb-[12px]">
               <h4 class="text-[16px] pt-[28px]">About the role</h4>
               <p style="overflow: hidden;display: -webkit-box;-webkit-box-orient: vertical;-webkit-line-clamp: 4;">${job.jobInfo}</p>
             </div>
-            <a href="" class="flex justify-center items-center w-fit bg-[#25666A] text-white h-[40px] my-2 rounded-lg cursor-pointer">Apply for role</a>
+            <a href="" class="flex justify-center items-center w-full bg-[#25666A] text-white h-[40px] my-2 rounded-lg cursor-pointer">Apply for role</a>
             
         </div>`;
       savedJobsHTML += savedJobsIndex;
@@ -325,7 +324,7 @@ function saveJobs() {
       `;
   } else {
     document.querySelector(".js-content").innerHTML = `
-      <div class="flex justify-center items-center mt-40 w-full">
+      <div class="flex justify-center items-center mt-40 w-full mb-80">
         <div class="text-center">
           <h1 class"mb-20">No saved jobs.</h1>
           <img src="assets/nosaved.jpg" class="w-[400px] h-[300px]">
