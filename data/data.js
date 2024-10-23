@@ -104,7 +104,14 @@ const jobs = [
 ];
 
 let search = "";
-let save = [];
+let save = JSON.parse(localStorage.getItem("jobsaved")) || [];
+
+save.forEach((savedJob) => {
+  const job = jobs.find((job) => job.id === savedJob.id);
+  if (job) {
+    job.saved = true;
+  }
+});
 
 // Render job cards
 jobs.forEach((job, index) => {
@@ -141,16 +148,13 @@ document.querySelectorAll(".save").forEach((saves) => {
     const index = saves.closest(".js-jobs").getAttribute("data-index");
     const jobToSave = jobs[index];
 
+    // (Job save toglle)make it so that if jobsaved is true it will be false and if false it will be true
+    jobToSave.saved = !jobToSave.saved;
+
     if (jobToSave.saved) {
-      // Toggle to unsave
-      jobToSave.saved = false;
-      save = save.filter((job) => job.id !== jobToSave.id);
-      localStorage.setItem("jobsaved", JSON.stringify(save));
-    } else {
-      // Save job
-      jobToSave.saved = true;
       save.push(jobToSave);
-      localStorage.setItem("jobsaved", JSON.stringify(save));
+    } else {
+      save = save.filter((job) => job.id !== jobToSave.id);
     }
     console.log(localStorage);
 
